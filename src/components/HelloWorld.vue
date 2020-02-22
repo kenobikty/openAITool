@@ -1,70 +1,211 @@
 <template>
-  <div>
-    <b-card no-body>
-      <b-tabs card>
-        <b-tab title="Tab 1" active>
-          <b-card-text>Tab contents 1</b-card-text>
-        </b-tab>
-        <b-tab title="Tab 2">
-          <b-card-text>Tab contents 2</b-card-text>
-        </b-tab>
-      </b-tabs>
-    </b-card>
-  </div>
-<!--  <div class="hello">-->
-<!--    <h1>{{ msg }}</h1>-->
-<!--    <p>-->
-<!--      For a guide and recipes on how to configure / customize this project,<br>-->
-<!--      check out the-->
-<!--      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.-->
-<!--    </p>-->
-<!--    <h3>Installed CLI Plugins</h3>-->
-<!--    <ul>-->
-<!--      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>-->
-<!--      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>-->
-<!--    </ul>-->
-<!--    <h3>Essential Links</h3>-->
-<!--    <ul>-->
-<!--      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>-->
-<!--      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>-->
-<!--      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>-->
-<!--      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>-->
-<!--      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>-->
-<!--    </ul>-->
-<!--    <h3>Ecosystem</h3>-->
-<!--    <ul>-->
-<!--      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>-->
-<!--      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>-->
-<!--      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>-->
-<!--      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>-->
-<!--      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>-->
-<!--    </ul>-->
-<!--  </div>-->
+    <div>
+        <b-tabs card>
+            <b-tab title="Resource" active>
+                <h2>Resource calculation</h2>
+                <b-form class="text-left">
+                    <h4>Clay (unsafe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in clayType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="clay[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalClay}}</p>
+                        </b-col>
+                    </b-form-row>
+                    <h4>Clay (Safe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in clayType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="claySafe[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalClaySafe}}</p>
+                        </b-col>
+                    </b-form-row>
+                </b-form>
+                <b-form class="text-left">
+                    <h4>Food (unsafe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in foodType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="food[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalFood}}</p>
+                        </b-col>
+                    </b-form-row>
+                    <h4>Food (Safe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in foodType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="foodSafe[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalFoodSafe}}</p>
+                        </b-col>
+                    </b-form-row>
+                </b-form>
+                <b-form class="text-left">
+                    <h4>Water (unsafe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in waterType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="water[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalWater}}</p>
+                        </b-col>
+                    </b-form-row>
+                    <h4>Water (Safe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in waterType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="waterSafe[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalWaterSafe}}</p>
+                        </b-col>
+                    </b-form-row>
+                </b-form>
+                <b-form class="text-left">
+                    <h4>Oil (unsafe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in oilType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="oil[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalOil}}</p>
+                        </b-col>
+                    </b-form-row>
+                    <h4>Oil (Safe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in oilType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="oilSafe[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalOilSafe}}</p>
+                        </b-col>
+                    </b-form-row>
+                </b-form>
+            </b-tab>
+            <b-tab title="Tab 2">
+                <p>Tab contents 2</p>
+            </b-tab>
+        </b-tabs>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  export default {
+    name: 'HelloWorld',
+    computed: {
+      subtotalClay() {
+        return this.MatrixOfArray(this.clay, this.clayType)
+      },
+      subtotalClaySafe() {
+        return this.MatrixOfArray(this.claySafe, this.clayType)
+      },
+      subtotalFood() {
+        return this.MatrixOfArray(this.food, this.foodType)
+      },
+      subtotalFoodSafe() {
+        return this.MatrixOfArray(this.foodSafe, this.foodType)
+      },
+      subtotalWater() {
+        return this.MatrixOfArray(this.water, this.waterType)
+      },
+      subtotalWaterSafe() {
+        return this.MatrixOfArray(this.waterSafe, this.waterType)
+      },
+      subtotalOil() {
+        return this.MatrixOfArray(this.oil, this.oilType)
+      },
+      subtotalOilSafe() {
+        return this.MatrixOfArray(this.oilSafe, this.oilType)
+      },
+    },
+    data() {
+      return {
+        resourceOrder: ['clay', 'food', 'water', 'oil'],
+        clay: [],
+        food: [],
+        water: [],
+        oil: [],
+        claySafe: [],
+        foodSafe: [],
+        waterSafe: [],
+        oilSafe: [],
+        clayType: [
+          1000,
+          10000,
+          50000,
+          150000,
+          500000,
+        ],
+        foodType: [
+          1000,
+          10000,
+          50000,
+          150000,
+          500000,
+        ],
+        waterType: [
+          160,
+          1600,
+          8000,
+          25000,
+          80000,
+        ],
+        oilType: [
+          40,
+          400,
+          2000,
+          6250,
+          20000,
+        ],
+      }
+    },
+    methods: {
+      MatrixOfArray(a1, a2) {
+        let out = 0
+        for (let i in a1) {
+          out += a1[i] * a2[i]
+        }
+        return out
+      }
+    }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
