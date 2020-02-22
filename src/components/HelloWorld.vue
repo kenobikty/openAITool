@@ -15,7 +15,8 @@
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalClaySafe}}</p>
+                            <p>{{subtotalClaySafe | thousandSeparator}}</p>
+                            <p>{{subtotalClaySafe | million}}</p>
                         </b-col>
                     </b-form-row>
                     <h4>Clay (unsafe)</h4>
@@ -28,7 +29,8 @@
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalClay}}</p>
+                            <p>{{subtotalClay | thousandSeparator}}</p>
+                            <p>{{subtotalClay | million}}</p>
                         </b-col>
                     </b-form-row>
                 </b-form>
@@ -43,7 +45,8 @@
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalFoodSafe}}</p>
+                            <p>{{subtotalFoodSafe | thousandSeparator}}</p>
+                            <p>{{subtotalFoodSafe | million}}</p>
                         </b-col>
                     </b-form-row>
                     <h4>Food (unsafe)</h4>
@@ -56,7 +59,8 @@
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalFood}}</p>
+                            <p>{{subtotalFood | thousandSeparator}}</p>
+                            <p>{{subtotalFood | million}}</p>
                         </b-col>
                     </b-form-row>
                 </b-form>
@@ -71,7 +75,8 @@
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalWaterSafe}}</p>
+                            <p>{{subtotalWaterSafe | thousandSeparator}}</p>
+                            <p>{{subtotalWaterSafe | million}}</p>
                         </b-col>
                     </b-form-row>
                     <h4>Water (unsafe)</h4>
@@ -84,7 +89,8 @@
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalWater}}</p>
+                            <p>{{subtotalWater | thousandSeparator}}</p>
+                            <p>{{subtotalWater | million}}</p>
                         </b-col>
                     </b-form-row>
                 </b-form>
@@ -99,7 +105,8 @@
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalOilSafe}}</p>
+                            <p>{{subtotalOilSafe | thousandSeparator}}</p>
+                            <p>{{subtotalOilSafe | million}}</p>
                         </b-col>
                     </b-form-row>
                     <h4>Oil (unsafe)</h4>
@@ -112,7 +119,8 @@
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalOil}}</p>
+                            <p>{{subtotalOil | thousandSeparator}}</p>
+                            <p>{{subtotalOil | million}}</p>
                         </b-col>
                     </b-form-row>
                 </b-form>
