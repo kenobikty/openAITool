@@ -2,7 +2,7 @@
     <div>
         <b-tabs card>
             <b-tab title="Resource" active>
-                <h2>Resource calculation (Last-Update: {{lastUpdate}})</h2>
+                <h2>Resource calculation (Last-Save: {{displayTime}})</h2>
                 <b-button @click="save">Save</b-button>
                 <b-form class="text-left">
                     <h4>Clay (Safe)</h4>
@@ -125,6 +125,8 @@
 </template>
 
 <script>
+  import moment from 'moment'
+
   export default {
     name: 'HelloWorld',
     computed: {
@@ -152,6 +154,9 @@
       subtotalOilSafe() {
         return this.MatrixOfArray(this.oilSafe, this.oilType)
       },
+      displayTime(){
+        return moment(this.lastUpdate).fromNow()
+      }
     },
     beforeMount() {
       this.init()
@@ -228,9 +233,10 @@
           waterSafe: this.waterSafe,
           oil: this.oil,
           oilSafe: this.oilSafe,
-          lastUpdate: new Date()
+          lastUpdate: moment()
         };
         this.$cookie.set('data', JSON.stringify(data))
+        this.lastUpdate = moment()
       }
     }
   }
