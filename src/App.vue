@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="logo" height="50" src="./assets/logo.png">
-    <span>Version: 0.0.1</span>
+    <span>Version: 0.0.2</span>
     <HelloWorld/>
   </div>
 </template>

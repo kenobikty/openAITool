@@ -5,19 +5,6 @@
                 <h2>Resource calculation (Last-Update: {{lastUpdate}})</h2>
                 <b-button @click="save">Save</b-button>
                 <b-form class="text-left">
-                    <h4>Clay (unsafe)</h4>
-                    <b-form-row>
-                        <template v-for="(n,i) in clayType">
-                            <b-col xs="4" sm="2">
-                                <span>{{n}}</span>
-                                <b-form-input type="number" v-model.number="clay[i]"></b-form-input>
-                            </b-col>
-                        </template>
-                        <b-col xs="4" sm="2">
-                            <span>Subtotal</span>
-                            <p>{{subtotalClay}}</p>
-                        </b-col>
-                    </b-form-row>
                     <h4>Clay (Safe)</h4>
                     <b-form-row>
                         <template v-for="(n,i) in clayType">
@@ -31,21 +18,21 @@
                             <p>{{subtotalClaySafe}}</p>
                         </b-col>
                     </b-form-row>
-                </b-form>
-                <b-form class="text-left">
-                    <h4>Food (unsafe)</h4>
+                    <h4>Clay (unsafe)</h4>
                     <b-form-row>
-                        <template v-for="(n,i) in foodType">
+                        <template v-for="(n,i) in clayType">
                             <b-col xs="4" sm="2">
                                 <span>{{n}}</span>
-                                <b-form-input type="number" v-model.number="food[i]"></b-form-input>
+                                <b-form-input type="number" v-model.number="clay[i]"></b-form-input>
                             </b-col>
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalFood}}</p>
+                            <p>{{subtotalClay}}</p>
                         </b-col>
                     </b-form-row>
+                </b-form>
+                <b-form class="text-left">
                     <h4>Food (Safe)</h4>
                     <b-form-row>
                         <template v-for="(n,i) in foodType">
@@ -59,21 +46,21 @@
                             <p>{{subtotalFoodSafe}}</p>
                         </b-col>
                     </b-form-row>
-                </b-form>
-                <b-form class="text-left">
-                    <h4>Water (unsafe)</h4>
+                    <h4>Food (unsafe)</h4>
                     <b-form-row>
-                        <template v-for="(n,i) in waterType">
+                        <template v-for="(n,i) in foodType">
                             <b-col xs="4" sm="2">
                                 <span>{{n}}</span>
-                                <b-form-input type="number" v-model.number="water[i]"></b-form-input>
+                                <b-form-input type="number" v-model.number="food[i]"></b-form-input>
                             </b-col>
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalWater}}</p>
+                            <p>{{subtotalFood}}</p>
                         </b-col>
                     </b-form-row>
+                </b-form>
+                <b-form class="text-left">
                     <h4>Water (Safe)</h4>
                     <b-form-row>
                         <template v-for="(n,i) in waterType">
@@ -87,21 +74,21 @@
                             <p>{{subtotalWaterSafe}}</p>
                         </b-col>
                     </b-form-row>
-                </b-form>
-                <b-form class="text-left">
-                    <h4>Oil (unsafe)</h4>
+                    <h4>Water (unsafe)</h4>
                     <b-form-row>
-                        <template v-for="(n,i) in oilType">
+                        <template v-for="(n,i) in waterType">
                             <b-col xs="4" sm="2">
                                 <span>{{n}}</span>
-                                <b-form-input type="number" v-model.number="oil[i]"></b-form-input>
+                                <b-form-input type="number" v-model.number="water[i]"></b-form-input>
                             </b-col>
                         </template>
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
-                            <p>{{subtotalOil}}</p>
+                            <p>{{subtotalWater}}</p>
                         </b-col>
                     </b-form-row>
+                </b-form>
+                <b-form class="text-left">
                     <h4>Oil (Safe)</h4>
                     <b-form-row>
                         <template v-for="(n,i) in oilType">
@@ -113,6 +100,19 @@
                         <b-col xs="4" sm="2">
                             <span>Subtotal</span>
                             <p>{{subtotalOilSafe}}</p>
+                        </b-col>
+                    </b-form-row>
+                    <h4>Oil (unsafe)</h4>
+                    <b-form-row>
+                        <template v-for="(n,i) in oilType">
+                            <b-col xs="4" sm="2">
+                                <span>{{n}}</span>
+                                <b-form-input type="number" v-model.number="oil[i]"></b-form-input>
+                            </b-col>
+                        </template>
+                        <b-col xs="4" sm="2">
+                            <span>Subtotal</span>
+                            <p>{{subtotalOil}}</p>
                         </b-col>
                     </b-form-row>
                 </b-form>
