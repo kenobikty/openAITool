@@ -11,7 +11,8 @@
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.5.0",
     "core-js": "^2.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-cookie": "^1.1.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",

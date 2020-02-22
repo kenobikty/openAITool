@@ -2,7 +2,8 @@
     <div>
         <b-tabs card>
             <b-tab title="Resource" active>
-                <h2>Resource calculation</h2>
+                <h2>Resource calculation (Last-Update: {{lastUpdate}})</h2>
+                <b-button @click="save">Save</b-button>
                 <b-form class="text-left">
                     <h4>Clay (unsafe)</h4>
                     <b-form-row>
@@ -116,8 +117,8 @@
                     </b-form-row>
                 </b-form>
             </b-tab>
-            <b-tab title="Tab 2">
-                <p>Tab contents 2</p>
+            <b-tab title="Speed-up (TODO)">
+                <p>Speed-up (TODO)</p>
             </b-tab>
         </b-tabs>
     </div>
@@ -152,9 +153,13 @@
         return this.MatrixOfArray(this.oilSafe, this.oilType)
       },
     },
+    beforeMount() {
+      this.init()
+    },
     data() {
       return {
         resourceOrder: ['clay', 'food', 'water', 'oil'],
+        lastUpdate: null,
         clay: [],
         food: [],
         water: [],
@@ -194,12 +199,38 @@
       }
     },
     methods: {
+      init() {
+        const data = JSON.parse(this.$cookie.get('data'));
+        this.lastUpdate = data.lastUpdate;
+        this.clay = data.clay;
+        this.food = data.food;
+        this.water = data.water;
+        this.oil = data.oil;
+        this.claySafe = data.claySafe;
+        this.foodSafe = data.foodSafe;
+        this.waterSafe = data.waterSafe;
+        this.oilSafe = data.oilSafe;
+      },
       MatrixOfArray(a1, a2) {
         let out = 0
         for (let i in a1) {
           out += a1[i] * a2[i]
         }
         return out
+      },
+      save() {
+        const data = {
+          clay: this.clay,
+          claySafe: this.claySafe,
+          food: this.food,
+          foodSafe: this.foodSafe,
+          water: this.water,
+          waterSafe: this.waterSafe,
+          oil: this.oil,
+          oilSafe: this.oilSafe,
+          lastUpdate: new Date()
+        };
+        this.$cookie.set('data', JSON.stringify(data))
       }
     }
   }

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img alt="logo" height="50" src="./assets/logo.png">
+    <span>Version: 0.0.1</span>
     <HelloWorld/>
   </div>
 </template>
@@ -23,6 +24,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
