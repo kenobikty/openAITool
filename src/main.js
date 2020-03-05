@@ -16,6 +16,7 @@ Vue.use(IconsPlugin)
 
 Vue.use(VueCookie);
 
+
 for (let [k, v] of Object.entries(filters)) {
   if (typeof v === 'function') {
     Vue.filter(k, v)
@@ -25,3 +26,5 @@ for (let [k, v] of Object.entries(filters)) {
 new Vue({
   render: h => h(App),
 }).$mount('#app')
+
+Vue.$cookies.config('300d');
