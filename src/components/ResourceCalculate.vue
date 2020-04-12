@@ -19,7 +19,7 @@
                             </b-col>
                             <b-col xs="6">
                                 <h3>
-                                    Unsafe : {{ subtotal(key, 'unsafe') }}
+                                    Unsafe : {{ subtotal(key, 'unsafe')  | million }}
                                 </h3>
                             </b-col>
                         </b-row>
