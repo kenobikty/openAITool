@@ -9,13 +9,13 @@
                 >
                     <template v-if="packageOwned[key]">
                         <h2 class="text-dark">
-                            Total (mins): {{ subtotal(key)}}
+                            Sub-Total (mins): {{ subtotal(key)}}
                         </h2>
                         <h2>
-                            Total (hrs): {{ subtotal(key) | handleMinutes('h')}}
+                            Sub-Total (hrs): {{ subtotal(key) | handleMinutes('h')}}
                         </h2>
                         <h2 class="text-primary">
-                            Total (days): {{ subtotal(key) | handleMinutes('d')}}
+                            Sub-Total (days): {{ subtotal(key) | handleMinutes('d')}}
                         </h2>
                     </template>
                     <div v-for="(n,i) in amountType" :key="i" class="mb-2">
