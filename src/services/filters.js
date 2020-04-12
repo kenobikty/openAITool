@@ -1,6 +1,6 @@
 import _moment from 'moment'
 import Vue from 'vue'
-import { get } from 'lodash'
+import {get} from 'lodash'
 
 let dateFormat = 'YYYY/MM/DD (ddd)'
 let datetimeFormat = 'YYYY/MM/DD (ddd) HH:mm'
@@ -8,7 +8,7 @@ let timeFormat = 'HH:mm'
 let defaultDecimals = 2
 let defaultDollarSign = '$'
 
-export { dateFormat, datetimeFormat, timeFormat, defaultDecimals, defaultDollarSign }
+export {dateFormat, datetimeFormat, timeFormat, defaultDecimals, defaultDollarSign}
 
 export function moment(v, format = datetimeFormat) {
   if (v == null) {
@@ -60,7 +60,7 @@ function parseDateRange(v, startProp, endProp) {
 }
 
 export function dateRange(v, startProp, endProp, pretty = true) {
-  const { s, e } = parseDateRange(v, startProp, endProp)
+  const {s, e} = parseDateRange(v, startProp, endProp)
   if (!s && !e) {
     return ''
   }
@@ -73,7 +73,7 @@ export function dateRange(v, startProp, endProp, pretty = true) {
 }
 
 export function timeRange(v, startProp, endProp) {
-  const { s, e } = parseDateRange(v, startProp, endProp)
+  const {s, e} = parseDateRange(v, startProp, endProp)
   if (!s && !e) {
     return ''
   }
@@ -83,7 +83,7 @@ export function timeRange(v, startProp, endProp) {
 }
 
 export function datetimeRange(v, startProp, endProp, pretty = true) {
-  const { s, e } = parseDateRange(v, startProp, endProp)
+  const {s, e} = parseDateRange(v, startProp, endProp)
   if (!s && !e) {
     return ''
   }
@@ -130,9 +130,9 @@ export function amount(
   }
   const prefix = v.currency
     ? Vue.i18n.translate(
-        `currencies.${v.currency.toLowerCase()}.shortcode`,
-        v.currency.toUpperCase() + dollar,
-      )
+      `currencies.${v.currency.toLowerCase()}.shortcode`,
+      v.currency.toUpperCase() + dollar,
+    )
     : ''
   return currency(v.value, prefix, decimals, accountingFormat)
 }
@@ -207,8 +207,21 @@ export function million(v) {
   if (v == null) {
     return ''
   }
-  const d = v/1000000
+  const d = v / 1000000
   return 'M  ' + Number(d).toLocaleString()
+}
+
+export function handleMinutes(v, format) {
+  if (v == null) {
+    return ''
+  }
+  let factor = 1
+  if (format) {
+    if (format === 'h') factor = 60
+    if (format === 'd') factor = 60 * 24
+  }
+  const d = v / factor;
+  return Number(d).toLocaleString()
 }
 
 

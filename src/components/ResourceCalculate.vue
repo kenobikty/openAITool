@@ -19,7 +19,7 @@
                             </b-col>
                             <b-col xs="6">
                                 <h3>
-                                    Unsafe : {{ subtotal(key, 'unsafe')  | million }}
+                                    Unsafe : {{ subtotal(key, 'unsafe') | million }}
                                 </h3>
                             </b-col>
                         </b-row>
@@ -49,8 +49,6 @@
 </template>
 
 <script>
-
-
   import moment from 'moment'
 
   export default {
@@ -124,8 +122,10 @@
     methods: {
       init() {
         const data = JSON.parse(window.localStorage.getItem('data'));
-        if (data.lastUpdate) this.lastUpdate = data.lastUpdate;
-        if (data.packageOwned) this.packageOwned = data.packageOwned;
+        if (data) {
+          if (data.lastUpdate) this.lastUpdate = data.lastUpdate;
+          if (data.packageOwned) this.packageOwned = data.packageOwned;
+        }
       },
       MatrixOfArray(a1, a2) {
         let out = 0
