@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="logo" height="50" src="./assets/logo.png">
-    <span>Version: 0.1.0(1)</span>
+    <span class="mx-2">Version: 0.1.0(2)</span>
+    <span>By Dungeon</span>
     <WasteLand/>
   </div>
 </template>
