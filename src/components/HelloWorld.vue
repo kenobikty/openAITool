@@ -213,7 +213,7 @@
     },
     methods: {
       init() {
-        const data = JSON.parse(this.$cookie.get('data'));
+        const data = JSON.parse(window.localStorage.getItem('data'));
         this.lastUpdate = data.lastUpdate;
         this.clay = data.clay;
         this.food = data.food;
@@ -243,7 +243,7 @@
           oilSafe: this.oilSafe,
           lastUpdate: moment()
         };
-        this.$cookie.set('data', JSON.stringify(data))
+        window.localStorage.setItem('data', JSON.stringify(data))
         this.lastUpdate = moment()
       }
     }
