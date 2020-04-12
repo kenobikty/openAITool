@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import VueCookie from 'vue-cookie'
 import * as filters from './services/filters'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -13,8 +12,6 @@ Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
-
-Vue.use(VueCookie);
 
 
 for (let [k, v] of Object.entries(filters)) {
