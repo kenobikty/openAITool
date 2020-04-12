@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <img alt="logo" height="50" src="./assets/logo.png">
-    <span>Version: 0.0.5(1)</span>
+    <span>Version: 0.0.6(1)</span>
     <WasteLand/>
   </div>
 </template>
 
 <script>
-import WasteLand from './components/WasteLand'
+import WasteLand from './views/WasteLand'
 
 export default {
   name: 'app',
