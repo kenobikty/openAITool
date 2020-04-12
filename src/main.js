@@ -24,4 +24,3 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
-Vue.$cookies.config('300d');
