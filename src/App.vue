@@ -2,17 +2,17 @@
   <div id="app">
     <img alt="logo" height="50" src="./assets/logo.png">
     <span>Version: 0.0.5(1)</span>
-    <HelloWorld/>
+    <WasteLand/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WasteLand from './components/WasteLand'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    WasteLand
   }
 }
 </script>
