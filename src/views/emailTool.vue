@@ -14,7 +14,7 @@
   import Round1 from "../components/Round1.vue";
 
   export default {
-    name: 'Round1',
+    name: 'HomePage',
     components: {Round1},
   }
 </script>

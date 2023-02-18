@@ -8,12 +8,11 @@
         max-rows="6"
     ></b-form-textarea>
     <b-btn @click="submit">submit</b-btn>
-    <div v-html="res"></div>
   </div>
 </template>
 
 <script>
-// import api from '@/api';
+import api from '@/api';
 
 export default {
   name: "Round1",
