@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <span class="mx-2">Version: 0.1.0</span>
     <emailTool/>
   </div>
 </template>

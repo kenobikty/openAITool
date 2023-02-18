@@ -1,4 +1,5 @@
 /* eslint-disable */
+//TODO: fix eslint
 import ApiError from '@/api/ApiError';
 import axios, {Axios} from 'axios';
 import mergeConfig from 'axios/lib/core/mergeConfig';
@@ -15,7 +16,7 @@ Axios.prototype.extend = function (config) {
   return instance;
 };
 
-const token = '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'
+const token = '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'
 
 export function createInstance() {
   const instance = axios.create({
