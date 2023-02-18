@@ -1,4 +1,4 @@
-# gamer
+# openAITool
 
 
 ## Project setup
@@ -29,4 +29,3 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 =======
-display calculation or statistic for gamer forum
