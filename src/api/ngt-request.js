@@ -1,5 +1,6 @@
+/* eslint-disable */
 import ApiError from '@/api/ApiError';
-import axios, { Axios } from 'axios';
+import axios, {Axios} from 'axios';
 import mergeConfig from 'axios/lib/core/mergeConfig';
 
 /**
@@ -14,7 +15,7 @@ Axios.prototype.extend = function (config) {
   return instance;
 };
 
-const token = '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'
+const token = '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'
 
 export function createInstance() {
   const instance = axios.create({
@@ -28,7 +29,7 @@ export function createInstance() {
     get host() {
       return process.env.VUE_APP_API_HOST || 'https://api.openai.com';
     },
-    headers: {'Authorization': 'Bearer '+token},
+    headers: {'Authorization': 'Bearer ' + token},
     //withCredentials: true, // send cookies when cross-domain requests
     timeout: process.env.NODE_ENV === 'production' ? 20000 : 0, // request timeout
     validateStatus: null, // treat all response as success, we will handle it manually

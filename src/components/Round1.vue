@@ -8,6 +8,15 @@
         max-rows="6"
     ></b-form-textarea>
     <b-btn @click="submit">submit</b-btn>
+    <b-row>
+      <b-col v-for="n in choices">
+<!--        <div v-if="!!n" v-html="n.text">-->
+<!--        </div>-->
+        <b-form-textarea :value="n.text"
+                         rows="30"
+        ></b-form-textarea>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -18,24 +27,23 @@ export default {
   name: "Round1",
   data() {
     return {
-      text: '',
-      res: null
+      text: 'act as a officer , draft an email to client explaining the delay of production',
+      choices: []
     }
   },
   methods: {
     async submit() {
-      await api.post('/engines/text-davinci-003-playground/completions', {
-        "prompt": "act as a officer , draft an email to client explaining the delay of production",
-        "max_tokens": 256,
-        "temperature": 0.7,
+      const res = (await api.post('/engines/text-davinci-003/completions', {
+        "prompt": this.text,
+        "max_tokens": 1000,
+        "temperature": 0.4,
         "top_p": 1,
         "frequency_penalty": 0,
         "presence_penalty": 0,
-        "best_of": 1,
-        "echo": true,
         "logprobs": 0,
-        "stream": true
-      })
+        "n": 2
+      }))
+      this.choices = res.data.choices
     }
   }
 }
